@@ -2,5 +2,5 @@
 import './options-storage.js';
 
 chrome.action.onClicked.addListener((tab) => {
-	chrome.tabs.sendMessage(tab.id, {action: 'take-screenshot'});
+	chrome.tabs.sendMessage(tab.id, { action: 'take-screenshot' });
 });

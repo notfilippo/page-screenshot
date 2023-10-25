@@ -62,15 +62,19 @@ chrome.runtime.onMessage.addListener(async (message) => {
 				const filename = new Date().toISOString() + '.png';
 				formData.append('document', blob, filename);
 
-				const xhr = new XMLHttpRequest();
-				xhr.open(
-					'POST',
-					'https://api.telegram.org/bot' +
-						options.botToken +
-						'/sendDocument?chat_id=' +
-						options.chatId,
-					true,
+				const queryParams = new URLSearchParams();
+				queryParams.set('chat_id', options.chatId);
+				if (options.topicId && options.topicId !== '') {
+					queryParams.set('message_thread_id', options.topicId);
+				}
+
+				const url = new URL(
+					'https://api.telegram.org/bot' + options.botToken + '/sendDocument',
 				);
+				url.search = queryParams.toString();
+
+				const xhr = new XMLHttpRequest();
+				xhr.open('POST', url.toString(), true);
 
 				xhr.send(formData);
 			});
