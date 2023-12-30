@@ -7,10 +7,11 @@ directly to a telegram chat.
 
 ## Build
 
-To build the extension, run the following command:
+To build the extension, run the following commands:
 
 ```bash
-pnpm run build
+pnpm install
+pnpm build
 ```
 
 NB: you need to have [pnpm](https://pnpm.io/) installed. You can install it following <https://pnpm.io/installation>.
