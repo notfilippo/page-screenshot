@@ -2,7 +2,7 @@
 	"name": "Page Screenshot",
 	"version": "0.0.0",
 	"description": "Fast full page screenshot",
-	"homepage_url": "https://github.com/notfilippo/page-screenshot",
+	"homepage_url": "https://github.com/squadracorsepolito/page-screenshot",
 	"manifest_version": 3,
 	"minimum_chrome_version": "100",
 	"browser_specific_settings": {

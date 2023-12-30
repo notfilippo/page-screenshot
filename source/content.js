@@ -1,6 +1,7 @@
 import html2canvas from 'html2canvas';
 import optionsStorage from './options-storage.js';
 
+// See https://github.com/squadracorsepolito/page-screenshot-proxy
 const PROXY = 'https://page-screenshot.filippo.dev/api';
 
 function convertAllImagesToBase64(cloned) {
@@ -62,16 +63,16 @@ chrome.runtime.onMessage.addListener(async (message) => {
 				const filename = new Date().toISOString() + '.png';
 				formData.append('document', blob, filename);
 
-				const queryParams = new URLSearchParams();
-				queryParams.set('chat_id', options.chatId);
+				const queryParameters = new URLSearchParams();
+				queryParameters.set('chat_id', options.chatId);
 				if (options.topicId && options.topicId !== '') {
-					queryParams.set('message_thread_id', options.topicId);
+					queryParameters.set('message_thread_id', options.topicId);
 				}
 
 				const url = new URL(
 					'https://api.telegram.org/bot' + options.botToken + '/sendDocument',
 				);
-				url.search = queryParams.toString();
+				url.search = queryParameters.toString();
 
 				const xhr = new XMLHttpRequest();
 				xhr.open('POST', url.toString(), true);

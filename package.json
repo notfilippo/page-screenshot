@@ -43,7 +43,7 @@
 		"sourceDir": "distribution",
 		"run": {
 			"startUrl": [
-				"https://github.com/notfilippo/page-screenshot"
+				"https://github.com/squadracorsepolito/page-screenshot"
 			]
 		}
 	},
